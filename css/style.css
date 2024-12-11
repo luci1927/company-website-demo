@@ -1,0 +1,127 @@
+/* Custom styles */
+.nav-link {
+    position: relative;
+    color: #1a365d;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    background-color: #2563eb;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover {
+    color: #2563eb;
+    transform: translateY(-1px);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: #2563eb;
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Header animations */
+nav {
+    transition: all 0.3s ease-in-out;
+}
+
+nav.scrolled {
+    transform: translateY(0);
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+nav:not(.scrolled) {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animation classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Service card hover effects */
+#services .shadow-lg {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#services .shadow-lg:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Contact form input focus effects */
+input:focus, textarea:focus {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.mobile-menu.show {
+    max-height: 400px;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.mobile-menu a {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu.show a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delays for mobile menu items */
+.mobile-menu a:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu a:nth-child(2) { transition-delay: 0.2s; }
+.mobile-menu a:nth-child(3) { transition-delay: 0.3s; }
+.mobile-menu a:nth-child(4) { transition-delay: 0.4s; }
+
+/* Reset delays when menu is closing */
+.mobile-menu:not(.show) a {
+    transition-delay: 0s;
+}
+
+/* Mobile menu button animation */
+.mobile-menu-button {
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-button.active {
+    transform: rotate(90deg);
+}
